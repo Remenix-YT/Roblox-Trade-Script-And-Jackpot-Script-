@@ -7,4 +7,4 @@ Scripts will be up in the code section
 #Codes were made by 
 
 Remenix-YT 
-Empire-YT 
+And Empire-YT 
