@@ -1,0 +1,65 @@
+-- Server script
+
+-- Define a table to store all the active trades
+local trades = {}
+
+-- Define a function to handle a player's trade offer
+function offerTrade(player, item)
+    -- Add the trade offer to the trades table
+    trades[player.UserId] = item
+end
+
+-- Define a function to handle a player accepting a trade
+function acceptTrade(player)
+    -- Check if the player has an active trade offer
+    if trades[player.UserId] then
+        -- Move the traded item from one player's inventory to the other
+        -- code to move the item from one player to the other goes here
+        
+        -- Remove the trade offer from the trades table
+        trades[player.UserId] = nil
+    end
+end
+
+-- Define a function to handle a player declining a trade
+function declineTrade(player)
+    -- Remove the trade offer from the trades table
+    trades[player.UserId] = nil
+end
+
+-- GUI script
+
+-- Define a function to handle the offer trade button click
+function onOfferTradeButtonClicked()
+    -- code to offer an item for trade goes here
+end
+
+-- Define a function to handle the accept trade button click
+function onAcceptTradeButtonClicked()
+    -- code to accept a trade goes here
+end
+
+-- Define a function to handle the decline trade button click
+function onDeclineTradeButtonClicked()
+    -- code to decline a trade goes here
+end
+
+-- Jackpot script
+
+-- Define a variable to store the total value of items traded
+local totalValue = 0
+
+-- Define a function to handle a trade
+function handleTrade(tradedItem)
+    -- Add the value of the traded item to the total value
+    totalValue = totalValue + tradedItem.Value
+    
+    -- Check if the jackpot has reached the threshold
+    if totalValue >= JACKPOT_THRESHOLD then
+        -- Select a random player as the winner and award the jackpot
+        -- code to select a random player and award the jackpot goes here
+        
+        -- Reset the total value to zero
+        totalValue = 0
+    end
+end
